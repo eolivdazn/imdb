@@ -1,8 +1,25 @@
-import Image from "next/image";
-import { Inter } from "@next/font/google";
+import Results from "@/components/Results";
 
-const inter = Inter({ subsets: ["latin"] });
+const API_KEY = process.env.APLI_KEY
+export default async function Home({searchParams}) {
 
-export default function Home() {
-  return <h1 className="text-red-400">HOME</h1>;
+    const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: `Bearer ${API_KEY}`
+  }
+};
+    const genre = searchParams.genre || "fetchTrending";
+
+    const res = await fetch(`https://api.themoviedb.org/3/${genre === 'fetchTopRated' ? 'movie/top_rated' : 
+        'trending/all/week'}?language=en-US&page=1`,{...options, next: { revalidate: 3600 } })
+        .then(response => response.json())
+        .catch(err => console.error(err));
+
+if(!res) {
+    throw new Error("Failed to fetch API");
+}
+
+    return <Results results={res.results} />;
 }
