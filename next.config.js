@@ -3,6 +3,7 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  images: { domains: ['www.themoviedb.org'] },
 }
 
 module.exports = nextConfig
