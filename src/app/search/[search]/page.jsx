@@ -1,6 +1,6 @@
 import Results from "@/components/Results";
 
-const API_KEY = process.env.APLI_KEY
+const API_KEY = process.env.API_KEY
 
 async function getSearch(searchParams) {
     const options = {

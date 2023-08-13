@@ -1,5 +1,5 @@
 import Image from 'next/image'
-const API_KEY = process.env.APLI_KEY
+const API_KEY = process.env.API_KEY
 
 
 async function getMovie(movieId){
