@@ -12,7 +12,7 @@ export default async function Home({searchParams}) {
 };
     const genre = searchParams.genre || "fetchTrending";
 
-    const res = await fetch(`https://api.themoviedb.org/3/${genre === 'fetchTopRated' ? 'movie/top_rated' : 
+    const res = await fetch(`http://api.themoviedb.org/3/${genre === 'fetchTopRated' ? 'movie/top_rated' : 
         'trending/all/week'}?language=en-US&page=1`,{...options, next: { revalidate: 3600 } })
         .then(response => response.json())
         .catch(err => console.error(err));

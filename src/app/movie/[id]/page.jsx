@@ -10,7 +10,7 @@ async function getMovie(movieId){
             Authorization: `Bearer ${API_KEY}`
         }
     };
-     return await fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,{...options, next: { revalidate: 3600 } })
+     return await fetch(`http://api.themoviedb.org/3/movie/${movieId}?language=en-US`,{...options, next: { revalidate: 3600 } })
         .then(response => response.json())
         .catch(err => console.error(err))
 }

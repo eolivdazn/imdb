@@ -10,7 +10,7 @@ async function getSearch(searchParams) {
             Authorization: `Bearer ${API_KEY}`
         }
     };
-    return await fetch(`https://api.themoviedb.org/3/search/movie?query=${searchParams}&include_adult=false&language=en-US&page=1`, {
+    return await fetch(`http://api.themoviedb.org/3/search/movie?query=${searchParams}&include_adult=false&language=en-US&page=1`, {
         ...options
     })
         .then(response => response.json())
