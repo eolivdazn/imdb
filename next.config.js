@@ -3,7 +3,7 @@ const nextConfig = {
   // experimental: {
   //   appDir: true,
   // },
-  images: { domains: ['www.themoviedb.org','*.themoviedb.org'] },
+  images: { domains: ['image.tmdb.org','*.themoviedb.org'] },
 }
 
 module.exports = nextConfig
