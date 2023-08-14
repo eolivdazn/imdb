@@ -23,7 +23,9 @@ export default async function Page({params}) {
         <div className="w-full">
             <div className="p-4 md:pt-8 flex flex-col md:flex-row items-center content-center max-w-6xl mx-auto md:space-x-6">
                 <Image
-                    src={` http://https://image.tmdb.org/t/p/w440_and_h660_face/${movie.poster_path}` || `http://https://image.tmdb.org/t/p/w440_and_h660_face/${movie.backdrop_path}`}
+                    src={`https://image.tmdb.org/t/p/original/${
+                        movie.backdrop_path || movie.poster_path
+                    }`}
                     width={500}
                     height={300}
                     className="rounded-lg"
